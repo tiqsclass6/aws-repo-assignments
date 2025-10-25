@@ -14,7 +14,7 @@
 If you discover a vulnerability, please **do not open a public issue**.  
 Instead, contact the maintainer directly via GitHub or email.
 
-- **Maintainer:** Rico “TIQS” Williams  
+- **Maintainer:** T.I.Q.S.  
 - **GitHub:** [@tiqsclass6](https://github.com/tiqsclass6)
 
 When reporting a vulnerability, please include:
