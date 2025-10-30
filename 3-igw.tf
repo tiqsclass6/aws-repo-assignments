@@ -1,7 +1,8 @@
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway
 
 #### Internet Gateway ####
 resource "aws_internet_gateway" "tiqs" {
+  name = "tiqs"
   vpc_id = aws_vpc.tiqs.id
 
   tags = {

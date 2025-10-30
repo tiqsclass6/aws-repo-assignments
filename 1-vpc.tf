@@ -1,4 +1,4 @@
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
 
 #### Create VPC ####
 resource "aws_vpc" "tiqs" {

@@ -1,9 +1,10 @@
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway
 
 #### Elastic IP for NAT Gateway ####
 resource "aws_eip" "nat" {
   domain     = "vpc"
+  name       = "tiqs"
   depends_on = [aws_internet_gateway.tiqs]
 }
 
