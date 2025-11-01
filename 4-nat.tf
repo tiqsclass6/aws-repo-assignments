@@ -4,12 +4,11 @@
 #### Elastic IP for NAT Gateway ####
 resource "aws_eip" "nat" {
   domain     = "vpc"
-  name       = "tiqs"
-  depends_on = [aws_internet_gateway.tiqs]
+  depends_on = [aws_internet_gateway.tiqs-igw]
 }
 
 #### NAT Gateway ####
-resource "aws_nat_gateway" "tiqs" {
+resource "aws_nat_gateway" "tiqs-nat" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.tiqs-public-1.id
 
@@ -17,5 +16,5 @@ resource "aws_nat_gateway" "tiqs" {
     Name = "tiqs"
   }
 
-  depends_on = [aws_internet_gateway.tiqs]
+  depends_on = [aws_internet_gateway.tiqs-igw]
 }
