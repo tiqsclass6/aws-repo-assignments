@@ -81,7 +81,7 @@ The final objective is to achieve a **production-ready AWS network foundation** 
 
 - **Focus:** Monitoring + Alerting + Observability
 - **Includes:**
-  - `venezuela.sh` — Bash S
+  - `venezuela.sh` — Custom Apache script that caters for Venezuela.
 - **Outcome:**
 Establishes the Monitoring & Alerting Layer, providing real-time visibility, proactive notifications, and scaling behaviors driven by production-grade metrics.
 
