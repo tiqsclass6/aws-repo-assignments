@@ -1,5 +1,7 @@
-resource "aws_lb_target_group" "tiqs-tg" {
-  name        = "tiqs-tg"
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group
+
+resource "aws_lb_target_group" "web-server" {
+  name        = "web-server"
   target_type = "instance"
   port        = 80
   protocol    = "HTTP"
@@ -16,6 +18,6 @@ resource "aws_lb_target_group" "tiqs-tg" {
   }
 
   tags = {
-    Name = "tiqs-tg"
+    Name = "web-server"
   }
 }

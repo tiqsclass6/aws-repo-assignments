@@ -1,5 +1,9 @@
-resource "aws_autoscaling_group" "venezuela-asg" {
-  name              = "venezuela-asg"
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_policy
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment
+
+resource "aws_autoscaling_group" "venezuela" {
+  name              = "venezuela"
   target_group_arns = [aws_lb_target_group.tiqs-tg.arn]
   desired_capacity  = 6
   max_size          = 9
@@ -37,14 +41,14 @@ resource "aws_autoscaling_group" "venezuela-asg" {
 
   tag {
     key                 = "Name"
-    value               = "venezuela-asg"
+    value               = "venezuela"
     propagate_at_launch = true
   }
 }
 
-resource "aws_autoscaling_policy" "venezuela-asg-Policy" {
-  name                   = "venezuela-asg-Policy"
-  autoscaling_group_name = aws_autoscaling_group.venezuela-asg.name
+resource "aws_autoscaling_policy" "venezuela-policy" {
+  name                   = "venezuela-policy"
+  autoscaling_group_name = aws_autoscaling_group.venezuela.name
 
   policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
@@ -59,6 +63,6 @@ resource "aws_autoscaling_policy" "venezuela-asg-Policy" {
 
 # Create a new ALB Target Group attachment
 resource "aws_autoscaling_attachment" "venezuela" {
-  autoscaling_group_name = aws_autoscaling_group.venezuela-asg.id
+  autoscaling_group_name = aws_autoscaling_group.venezuela.id
   lb_target_group_arn    = aws_lb_target_group.tiqs-tg.arn
 }

@@ -5,12 +5,12 @@
 #   ami                         = "ami-02040ca09ead0f460"
 #   instance_type               = "t3.micro"
 #   subnet_id                   = aws_subnet.tiqs-public-1.id
-#   vpc_security_group_ids      = [aws_security_group.tiqs-public-sg.id]
+#   vpc_security_group_ids      = [aws_security_group.web-server.id]
 #   associate_public_ip_address = true
 
-#   user_data = file("panama.sh")
+#   user_data = file("venezuela.sh")
 
-#   depends_on = [aws_security_group.tiqs-public-sg]
+#   depends_on = [aws_security_group.web-server]
 
 #   tags = {
 #     Name    = "tiqs-ec2-instance"
