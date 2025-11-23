@@ -77,6 +77,16 @@ The final objective is to achieve a **production-ready AWS network foundation** 
 
 ---
 
+### 🔹 [`assignment-11182025`](https://github.com/tiqsclass6/aws-repo-assignments/tree/assignment-11182025)
+
+- **Focus:** Monitoring + Alerting + Observability
+- **Includes:**
+  - `venezuela.sh` — Bash S
+- **Outcome:**
+Establishes the Monitoring & Alerting Layer, providing real-time visibility, proactive notifications, and scaling behaviors driven by production-grade metrics.
+
+---
+
 ## 🗂️ Repository Tree
 
 ```bash
@@ -104,6 +114,9 @@ assignment-11112025/
 ├── 9-load-balancer.tf
 ├── 10-autoscaling-policy.tf
 ├── 11-launch-template.tf
+├
+assignment-11182025/
+├── venezuela.sh
 ```
 
 ---
@@ -147,6 +160,7 @@ terraform apply -auto-approve
 | 3️⃣ | `assignment-10282025` | Security Groups + EC2 Instance | `6-SG-All.tf`, `7-instances.tf` |
 | 4️⃣ | `assignment-11042025` | Security + IAM Expansion | `B. outputs.tf` |
 | 5️⃣ | `assignment-11112025` | Compute + Load Balancer + Autoscaling | `8-target-groups.tf`, `9-load-balancer.tf`, `10-autoscaling-policy.tf`, `11-launch-template.tf` |
+| 6️⃣ | `assignment-11182025` | Monitoring + Alerting | `venezuela.sh` |
 
 > [!NOTE]
 > Future branches will add compute, IAM roles, and monitoring components.
@@ -161,6 +175,10 @@ terraform apply -auto-approve
 | **Credential errors** | Ensure `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are configured. |
 | **NAT Gateway not deploying** | Check subnet associations and elastic IP configurations. |
 | **Route Table not linking** | Validate subnet-to-route-table associations and IGW IDs. |
+| **ALB not provisioning** | Confirm security group rules and target group health checks. |
+| **Autoscaling issues** | Review scaling policies and CloudWatch metrics for triggers. |
+| **Monitoring scripts fail** | Ensure AWS CLI is configured and permissions are correct. |
+| **State file conflicts** | Use `terraform state` commands to inspect and resolve issues. |
 
 ---
 
