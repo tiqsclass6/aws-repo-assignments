@@ -6,7 +6,7 @@
 resource "aws_security_group" "web-server" {
   name        = "web-server"
   description = "Web Server SG"
-  vpc_id      = aws_vpc.tiqs.id
+  vpc_id      = aws_vpc.main.id
 
   tags = {
     Name = "web-server"

@@ -7,9 +7,9 @@ resource "aws_lb" "web-server" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb.id]
   subnets = [
-    aws_subnet.tiqs-public-1.id,
-    aws_subnet.tiqs-public-2.id,
-    aws_subnet.tiqs-public-3.id
+    aws_subnet.public-1.id,
+    aws_subnet.public-2.id,
+    aws_subnet.public-3.id
   ]
 
   enable_deletion_protection = false

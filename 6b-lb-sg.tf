@@ -6,7 +6,7 @@
 resource "aws_security_group" "lb" {
   name        = "lb"
   description = "Load Balancer SG for TIQS resources"
-  vpc_id      = aws_vpc.tiqs.id
+  vpc_id      = aws_vpc.main.id
 
   tags = {
     Name = "lb"

@@ -2,59 +2,59 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association
 
 # Public Route Table and Associations
-resource "aws_route_table" "tiqs-public-rtb" {
-  vpc_id = aws_vpc.tiqs.id
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.tiqs-igw.id
+    gateway_id = aws_internet_gateway.main.id
   }
 
   tags = {
-    Name = "tiqs-public-rtb"
+    Name = "public"
   }
 }
 
 resource "aws_route_table_association" "public-1" {
-  subnet_id      = aws_subnet.tiqs-public-1.id
-  route_table_id = aws_route_table.tiqs-public-rtb.id
+  subnet_id      = aws_subnet.public-1.id
+  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public-2" {
-  subnet_id      = aws_subnet.tiqs-public-2.id
-  route_table_id = aws_route_table.tiqs-public-rtb.id
+  subnet_id      = aws_subnet.public-2.id
+  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public-3" {
-  subnet_id      = aws_subnet.tiqs-public-3.id
-  route_table_id = aws_route_table.tiqs-public-rtb.id
+  subnet_id      = aws_subnet.public-3.id
+  route_table_id = aws_route_table.public.id
 }
 
 # Private Route Table and Associations
-resource "aws_route_table" "tiqs-private-rtb" {
-  vpc_id = aws_vpc.tiqs.id
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.tiqs-nat.id
+    nat_gateway_id = aws_nat_gateway.private.id
   }
 
   tags = {
-    Name = "tiqs-private-rtb"
+    Name = "private"
   }
 }
 
 resource "aws_route_table_association" "private-1" {
-  subnet_id      = aws_subnet.tiqs-private-1.id
-  route_table_id = aws_route_table.tiqs-private-rtb.id
+  subnet_id      = aws_subnet.private-1.id
+  route_table_id = aws_route_table.private.id
 }
 
 resource "aws_route_table_association" "private-2" {
-  subnet_id      = aws_subnet.tiqs-private-2.id
-  route_table_id = aws_route_table.tiqs-private-rtb.id
+  subnet_id      = aws_subnet.private-2.id
+  route_table_id = aws_route_table.private.id
 }
 
 resource "aws_route_table_association" "private-3" {
-  subnet_id      = aws_subnet.tiqs-private-3.id
-  route_table_id = aws_route_table.tiqs-private-rtb.id
+  subnet_id      = aws_subnet.private-3.id
+  route_table_id = aws_route_table.private.id
 }

@@ -4,15 +4,15 @@
 
 resource "aws_autoscaling_group" "venezuela" {
   name              = "venezuela"
-  target_group_arns = [aws_lb_target_group.tiqs-tg.arn]
+  target_group_arns = [aws_lb_target_group.web-server.arn]
   desired_capacity  = 6
   max_size          = 9
   min_size          = 3
   force_delete      = true
   vpc_zone_identifier = [
-    aws_subnet.tiqs-private-1.id,
-    aws_subnet.tiqs-private-2.id,
-    aws_subnet.tiqs-private-3.id
+    aws_subnet.private-1.id,
+    aws_subnet.private-2.id,
+    aws_subnet.private-3.id
   ]
   health_check_type         = "ELB"
   health_check_grace_period = 300
@@ -64,5 +64,5 @@ resource "aws_autoscaling_policy" "venezuela-policy" {
 # Create a new ALB Target Group attachment
 resource "aws_autoscaling_attachment" "venezuela" {
   autoscaling_group_name = aws_autoscaling_group.venezuela.id
-  lb_target_group_arn    = aws_lb_target_group.tiqs-tg.arn
+  lb_target_group_arn    = aws_lb_target_group.web-server.arn
 }

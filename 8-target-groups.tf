@@ -5,7 +5,7 @@ resource "aws_lb_target_group" "web-server" {
   target_type = "instance"
   port        = 80
   protocol    = "HTTP"
-  vpc_id      = aws_vpc.tiqs.id
+  vpc_id      = aws_vpc.main.id
 
   health_check {
     enabled             = true
