@@ -130,7 +130,7 @@ cat <<EOF > /var/www/html/index.html
       <img src="https://onlineforlove.com/wp-content/uploads/2020/04/image-281.jpg" alt="Center - Couple Vibes">
     </div>
     <div class="image-card img-red">
-      <img src="https://scontent.fsan1-2.fna.fbcdn.net/v/t39.30808-6/468309169_18470597347062813_5708760263966733545_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=jLddNn8xwZQQ7kNvwF2qXHH&_nc_oc=AdlJEb064cfQXyA8zarex5abJu1gFGB0L8bu71OnSEV135jlyuyOcYE9PyJit8OzI_17Z1qecSyGnhkx760gUm10&_nc_zt=23&_nc_ht=scontent.fsan1-2.fna&_nc_gid=zpPKBXzL5AvEzQoG-9CAVw&oh=00_AfgVYunegdjn0D-E5jwihuWoMCau-Q0y-RBJNgN9ByMVWA&oe=6915A4B9" alt="Right - Tropical Mood">
+      <img src="https://www.juliemhill.com/wp-content/uploads/2025/05/Panama-Brides-e1747221281194.jpg" alt="Right - Tropical Mood">
     </div>
   </div>
 

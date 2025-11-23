@@ -1,5 +1,5 @@
-# Venezuela Web Server (In Different AZ's)
+# Panama Web Server (In Different AZ's)
 
-![venezuela1.jpg](/Screenshots/venezuela1.jpg)
-![venezuela2.jpg](/Screenshots/venezuela2.jpg)
-![venezuela3.jpg](/Screenshots/venezuela3.jpg)
+![panama1.jpg](/Screenshots/panama1.jpg)
+![panama2.jpg](/Screenshots/panama2.jpg)
+![panama3.jpg](/Screenshots/panama3.jpg)

@@ -1,5 +1,5 @@
-resource "aws_autoscaling_group" "venezuela-asg" {
-  name              = "venezuela-asg"
+resource "aws_autoscaling_group" "panama-asg" {
+  name              = "panama-asg"
   target_group_arns = [aws_lb_target_group.tiqs-tg.arn]
   desired_capacity  = 6
   max_size          = 9
@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "venezuela-asg" {
   health_check_grace_period = 300
 
   launch_template {
-    id      = aws_launch_template.venezuela-template.id
+    id      = aws_launch_template.panama-template.id
     version = "$Latest"
   }
 
@@ -37,14 +37,14 @@ resource "aws_autoscaling_group" "venezuela-asg" {
 
   tag {
     key                 = "Name"
-    value               = "venezuela-asg"
+    value               = "panama-asg"
     propagate_at_launch = true
   }
 }
 
-resource "aws_autoscaling_policy" "venezuela-asg-Policy" {
-  name                   = "venezuela-asg-Policy"
-  autoscaling_group_name = aws_autoscaling_group.venezuela-asg.name
+resource "aws_autoscaling_policy" "panama-asg-policy" {
+  name                   = "panama-asg-Policy"
+  autoscaling_group_name = aws_autoscaling_group.panama-asg.name
 
   policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
@@ -58,7 +58,7 @@ resource "aws_autoscaling_policy" "venezuela-asg-Policy" {
 }
 
 # Create a new ALB Target Group attachment
-resource "aws_autoscaling_attachment" "venezuela" {
-  autoscaling_group_name = aws_autoscaling_group.venezuela-asg.id
+resource "aws_autoscaling_attachment" "panama" {
+  autoscaling_group_name = aws_autoscaling_group.panama-asg.id
   lb_target_group_arn    = aws_lb_target_group.tiqs-tg.arn
 }
