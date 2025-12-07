@@ -5,11 +5,15 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
 
-data "aws_canonical_user_id" "current" {}
+variable "region" {
+  description = "The AWS region where resources will be created"
+  type        = string
+  default     = "us-east-1"
+}
 
 resource "aws_s3_bucket" "static_site" {
   bucket        = "tiqs-static-site-bucket"
-  force_destroy = false
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "website" {
@@ -26,9 +30,9 @@ resource "aws_s3_bucket_website_configuration" "website" {
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket                  = aws_s3_bucket.static_site.id
-  block_public_acls       = false
+  block_public_acls       = true
   block_public_policy     = false
-  ignore_public_acls      = false
+  ignore_public_acls      = true
   restrict_public_buckets = false
 }
 

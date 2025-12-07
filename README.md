@@ -14,6 +14,10 @@
 
 This project deploys a fully animated **Argentina-themed static website** to **AWS S3** using **Terraform**, featuring background music, an interactive carousel, shimmering text, and glowing flag-color effects. The deployment follows modern AWS best practices including **Bucket Owner Enforced** (no ACLs) and fully automated provisioning using Infrastructure as Code.
 
+![diagram.png](/Screenshots/diagram.png)
+
+---
+
 ### 🌍 Why S3 Static Websites Matter
 
 S3 is one of the most effective platforms for hosting static websites because it provides:
@@ -67,6 +71,17 @@ terraform apply -auto-approve
 ![terraform-plan.jpg](/Screenshots/terraform-plan.jpg)
 ![terraform-apply.jpg](/Screenshots/terraform-apply.jpg)
 
+```plaintext
+bucket_information = {
+  "arn" = "arn:aws:s3:::tiqs-static-site-bucket"
+  "name" = "tiqs-static-site-bucket"
+}
+
+error_html_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com/error.html"
+index_html_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com/index.html"
+website_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com"
+```
+
 ---
 
 ## ⚙️ Terraform Architecture
@@ -85,6 +100,9 @@ terraform apply -auto-approve
 
 - **S3 Static Website**  
   ![Argentina Website Homepage](/Screenshots/s3-static-site.jpg)
+
+- **S3 Error Page**  
+  ![Website Error Page](/Screenshots/s3-error-html.jpg)
 
 - **AWS S3 Bucket**  
   ![S3 Bucket](/Screenshots/aws-s3-bucket.jpg)
