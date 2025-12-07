@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket  = "class-7-state-files"
-    key     = "12022025.tfstate"
-    region  = "us-east-1"
+    bucket  = "s3-static-site-files"
+    key     = "espana/espana.tfstate"
+    region  = "eu-south-2"
     encrypt = true
   }
 }

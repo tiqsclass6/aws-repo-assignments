@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Argentina - Class Showcase</title>
+  <title>España - Class Showcase</title>
 
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
 
     body {
-      background: url("https://w0.peakpx.com/wallpaper/26/845/HD-wallpaper-argentina-flag-latin-world-symbol-argentina-country-flag.jpg")
+      background: url("https://wallpaperbat.com/img/108783380-spain-flag-iconic-coat-of-arms.jpg")
         no-repeat center center fixed;
       background-size: cover;
       margin: 0;
@@ -30,26 +30,20 @@
       0%   { opacity: 0; transform: translateY(25px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     .fade-in { opacity: 0; animation: fadeSlide 1.2s ease-out forwards; }
     .delay-1 { animation-delay: 0.3s; }
     .delay-2 { animation-delay: 0.6s; }
     .delay-3 { animation-delay: 0.9s; }
 
-    /* ---------------------------------------
-       FIXED TOP ROW = EXACT 1150PX WIDTH
-       --------------------------------------- */
     .image-row {
       width: 1150px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: nowrap;
-      margin: 20px auto;
+      margin: 10px auto;
       gap: 10px;
     }
 
-    /* LEFT & RIGHT IMAGES */
     .image-card {
       flex: 0 0 300px;
       padding: 8px;
@@ -65,23 +59,13 @@
       transition: transform 0.3s ease;
     }
 
+    .left-img img {
+      height: 230px !important;
+      object-position: top !important;
+    }
+
     .image-card img:hover { transform: scale(1.06); }
 
-    /* Glow animations */
-    @keyframes whiteGlow {
-      0%,100% { box-shadow: 0 0 12px #fff; }
-      50%     { box-shadow: 0 0 22px #fff; }
-    }
-    @keyframes goldGlow {
-      0%,100% { box-shadow: 0 0 12px #ffd700; }
-      50%     { box-shadow: 0 0 22px #ffd700; }
-    }
-    .img-white img { animation: whiteGlow 3s infinite; }
-    .img-gold img  { animation: goldGlow 3s infinite; }
-
-    /* ---------------------------------------
-       CENTER CAROUSEL
-       --------------------------------------- */
     .carousel-wrapper {
       flex: 1;
       max-width: 500px;
@@ -94,13 +78,12 @@
     .carousel-title {
       font-size: 1.3rem;
       color: #ffd700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .carousel-subtitle {
-      font-size: 0.85rem;
-      color: #f5f5f5;
-      margin-bottom: 12px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
     }
 
     .carousel {
@@ -130,11 +113,6 @@
       object-fit: cover;
     }
 
-    .carousel-caption {
-      margin-top: 8px;
-      font-size: 0.85rem;
-    }
-
     #pauseText {
       display: none;
       position: absolute;
@@ -147,9 +125,70 @@
       color: #ffd700;
     }
 
-    /* ---------------------------------------
-       HIDDEN MUSIC PLAYER (Autoplay Fix)
-       --------------------------------------- */
+    .showcase-frame {
+      position: relative;
+      width: 1250px;
+      margin: 60px auto 40px;
+      padding: 40px;
+      border: 5px solid #ffd700;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .showcase-frame > div[class^="frame-"] {
+      position: absolute;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #ffd700;
+      text-shadow: 0 0 6px rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.65);
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .frame-top {
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .frame-bottom {
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .frame-left {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      left: -50px;
+      top: 50%;
+      translate: 0 -50%;
+    }
+
+    .frame-right {
+      writing-mode: vertical-rl;
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      background:#ffd700;
+      color:#000;
+      font-weight:bold;
+      cursor:pointer;
+      border:none;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+      font-size: 1rem;
+    }
+
     #ytplayer {
       width: 1px;
       height: 1px;
@@ -158,148 +197,74 @@
       left: -9999px;
     }
 
-    /* ---------------------------------------
-       SHIMMERING ARGENTINA GRADIENT TEXT
-       --------------------------------------- */
-    @keyframes argentinaShimmer {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .flag-text {
-      font-weight: bold;
-      font-size: 1.05rem;
-      background: linear-gradient(90deg, #74ACDF, #FFFFFF, #F6B40E, #FFFFFF, #74ACDF);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: argentinaShimmer 4s linear infinite;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
-    }
-
-    /* ---------------------------------------
-       GLOWING ARGENTINA BORDER AROUND CARD
-       --------------------------------------- */
-    @keyframes borderGlow {
-      0%   { box-shadow: 0 0 10px #74ACDF; border-color: #74ACDF; }
-      33%  { box-shadow: 0 0 12px #FFFFFF; border-color: #FFFFFF; }
-      66%  { box-shadow: 0 0 12px #F6B40E; border-color: #F6B40E; }
-      100% { box-shadow: 0 0 10px #74ACDF; border-color: #74ACDF; }
-    }
-
-    .cards {
-      display: flex;
-      justify-content: center;
-      margin-top: 25px;
-    }
-
-    .card {
-      background: rgba(0,0,0,0.75);
-      padding: 20px 30px;
-      border-radius: 12px;
-      max-width: 500px;
-      border: 3px solid #74ACDF;
-      animation: borderGlow 5s ease-in-out infinite;
-      text-align: left;
-    }
-
-    .card h3 {
-      color: #F6B40E;
-      text-align: center;
-      margin-top: 0;
-      text-shadow: 0 0 10px rgba(0,0,0,0.9);
-    }
   </style>
 </head>
 
 <body>
 
-  <h1 class="fade-in">Argentina - Class Showcase</h1>
+  <h1 class="fade-in">España - Class Showcase</h1>
 
-  <!-- Background Music -->
   <iframe
     id="ytplayer"
-    src="https://www.youtube.com/embed/yuNock42Pxs?autoplay=1&mute=1&loop=1&playlist=yuNock42Pxs"
+    src="https://www.youtube.com/embed/G8dtfQNQt0w?autoplay=1&mute=1&loop=1&playlist=G8dtfQNQt0w"
     allow="autoplay"
   ></iframe>
 
-  <!-- UNMUTE BUTTON -->
-  <button onclick="unmuteMusic()"
-    style="
-      position: fixed; bottom: 20px; right: 20px;
-      padding: 10px 20px; border-radius: 10px; background:#ffd700;
-      color:#000; font-weight:bold; cursor:pointer; border:none;
-      box-shadow:0 0 10px rgba(0,0,0,0.5);
-    ">
-    🔊 Play Music
-  </button>
+  <button id="musicBtn" onclick="unmuteMusic()">🔊 Play Music</button>
 
   <script>
     function unmuteMusic() {
       const player = document.getElementById("ytplayer");
       player.src =
-        "https://www.youtube.com/embed/yuNock42Pxs?autoplay=1&mute=0&loop=1&playlist=yuNock42Pxs";
+        "https://www.youtube.com/embed/G8dtfQNQt0w?autoplay=1&mute=0&loop=1&playlist=G8dtfQNQt0w";
     }
   </script>
 
-  <!-- TOP 1150PX ROW -->
-  <div class="image-row fade-in delay-1">
+  <div class="showcase-frame fade-in delay-1">
 
-    <div class="image-card img-white">
-      <img src="https://i.etsystatic.com/61348100/r/il/eb0e1b/7237295942/il_fullxfull.7237295942_6uhw.jpg">
-    </div>
+    <div class="frame-top">Location: eu-south-2 (Spain)</div>
+    <div class="frame-bottom">Reason: Celebrating the passion of España</div>
+    <div class="frame-left">Highlight: Red • Gold • Heritage</div>
+    <div class="frame-right">Next Lesson: Route 53 and ACM</div>
 
-    <div class="carousel-wrapper fade-in delay-3">
-      <div class="carousel-title">Argentina Spotlight</div>
-      <div class="carousel-subtitle">Inspired by the heart and soul of Argentina.</div>
+    <div class="image-row">
 
-      <div class="carousel" id="carousel">
-        <span id="pauseText">⏸ Paused</span>
+      <div class="image-card left-img">
+        <img src="https://thumbs.dreamstime.com/b/swimsuit-fashion-woman-16048902.jpg">
+      </div>
 
-        <div class="carousel-slide active">
-          <img src="https://i.ytimg.com/vi/TmFaLca_Rfw/hq720.jpg">
-          <div class="carousel-caption">Passion in <span style="color:#87cefa;">sky blue</span>.</div>
-        </div>
+      <div class="carousel-wrapper fade-in delay-3">
+        <div class="carousel-title">España Spotlight</div>
+        <div class="carousel-subtitle">Inspired by the beauty and strength of Spain.</div>
 
-        <div class="carousel-slide">
-          <img src="https://i.etsystatic.com/61348100/r/il/eb0e1b/7237295942/il_fullxfull.7237295942_6uhw.jpg">
-          <div class="carousel-caption">Elegance in <span style="color:#ffffff;">white brilliance</span>.</div>
-        </div>
+        <div class="carousel" id="carousel">
+          <span id="pauseText">⏸ Paused</span>
 
-        <div class="carousel-slide">
-          <img src="https://i.ytimg.com/vi/Jwzc7ZNHLUM/hq720.jpg">
-          <div class="carousel-caption">Strength in <span style="color:#ffd700;">sun-gold warmth</span>.</div>
+          <div class="carousel-slide active">
+            <img src="https://c.wallhere.com/photos/79/57/portrait_sun_sexy_valencia_beautiful_beauty_monster_yellow-506593.jpg!d">
+            <div class="carousel-caption">Sun-kissed elegance from Valencia.</div>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="https://thumbs.dreamstime.com/b/swimsuit-fashion-woman-16048902.jpg">
+            <div class="carousel-caption">Grace in red & gold.</div>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="https://as1.ftcdn.net/jpg/01/04/49/60/1000_F_104496067_VzlWG5ijpmKxHy7LD7J30KLhMABk17ON.jpg">
+            <div class="carousel-caption">Timeless European beauty.</div>
+          </div>
+
         </div>
       </div>
-    </div>
 
-    <div class="image-card img-gold">
-      <img src="https://i.ytimg.com/vi/Jwzc7ZNHLUM/hq720.jpg">
-    </div>
-  </div>
+      <div class="image-card">
+        <img src="https://as1.ftcdn.net/jpg/01/04/49/60/1000_F_104496067_VzlWG5ijpmKxHy7LD7J30KLhMABk17ON.jpg">
+      </div>
 
-  <!-- TASK DELIVERABLES -->
-  <div class="cards fade-in delay-2">
-    <div class="card">
-      <h3>Task Deliverables</h3>
-
-      <p><b style="color:#F6B40E;">Location:</b>
-        <span class="flag-text">Showcasing the essence of Argentina</span>
-      </p>
-
-      <p><b style="color:#F6B40E;">Highlight:</b>
-        <span class="flag-text">Sky Blue • White • Sun-Gold</span>
-      </p>
-
-      <p><b style="color:#F6B40E;">Next Lesson:</b>
-        <span class="flag-text">Route 53 and ACM</span>
-      </p>
     </div>
   </div>
 
-  <!-- CAROUSEL SCRIPT -->
   <script>
     const slides = document.querySelectorAll(".carousel-slide");
     const pauseText = document.getElementById("pauseText");
@@ -312,7 +277,7 @@
       );
     }
 
-    let interval = setInterval(() => {
+    setInterval(() => {
       if (!playing) return;
       index = (index + 1) % slides.length;
       showSlide(index);

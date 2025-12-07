@@ -8,11 +8,11 @@
 variable "region" {
   description = "The AWS region where resources will be created"
   type        = string
-  default     = "us-east-1"
+  default     = "eu-south-2"
 }
 
 resource "aws_s3_bucket" "static_site" {
-  bucket        = "tiqs-static-site-bucket"
+  bucket        = "tiqs-spain-static-site"
   force_destroy = true
 }
 
@@ -40,7 +40,7 @@ resource "aws_s3_bucket_ownership_controls" "ownership" {
   bucket = aws_s3_bucket.static_site.id
 
   rule {
-    object_ownership = "ObjectWriter"
+    object_ownership = "BucketOwnerEnforced"
   }
 }
 
@@ -69,15 +69,15 @@ resource "aws_s3_bucket_policy" "public_policy" {
 resource "aws_s3_object" "index_html" {
   bucket       = aws_s3_bucket.static_site.id
   key          = "index.html"
-  source       = "${path.module}/A-index.html"
+  source       = "${path.root}/A-index.html"
   content_type = "text/html"
-  etag         = filemd5("${path.module}/A-index.html")
+  etag         = filemd5("${path.root}/A-index.html")
 }
 
 resource "aws_s3_object" "error_html" {
   bucket       = aws_s3_bucket.static_site.id
   key          = "wifey.html"
-  source       = "${path.module}/B-wifey.html"
+  source       = "${path.root}/B-wifey.html"
   content_type = "text/html"
-  etag         = filemd5("${path.module}/B-wifey.html")
+  etag         = filemd5("${path.root}/B-wifey.html")
 }

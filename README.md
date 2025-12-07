@@ -1,4 +1,4 @@
-# Argentina Static Website – AWS S3 Deployment
+# España Static Website – AWS S3 Deployment
 
 ## Cloud Static Web Hosting • Terraform IaC • S3 Website Hosting  
 
@@ -12,7 +12,7 @@
 
 ## 📌 Project Overview
 
-This project deploys a fully animated **Argentina-themed static website** to **AWS S3** using **Terraform**, featuring background music, an interactive carousel, shimmering text, and glowing flag-color effects. The deployment follows modern AWS best practices including **Bucket Owner Enforced** (no ACLs) and fully automated provisioning using Infrastructure as Code.
+This project deploys a fully animated **España-themed static website** to **AWS S3** using **Terraform**, featuring background music, an interactive carousel, shimmering text, and glowing flag-color effects. The deployment follows modern AWS best practices including **Bucket Owner Enforced** (no ACLs) and fully automated provisioning using Infrastructure as Code.
 
 ![diagram.png](/Screenshots/diagram.png)
 
@@ -32,7 +32,7 @@ S3 is one of the most effective platforms for hosting static websites because it
 
 ### 🌟 Key Features
 
-- 🇦🇷 Argentina-styled, fully animated UI  
+- 🇦🇷 España-styled, fully animated UI  
 - 🎵 Background music with click-to-unmute  
 - 🔁 Responsive auto-playing carousel with pause-on-hover  
 - ✨ Shimmering gradient text & glowing flag-color borders  
@@ -73,13 +73,11 @@ terraform apply -auto-approve
 
 ```plaintext
 bucket_information = {
-  "arn" = "arn:aws:s3:::tiqs-static-site-bucket"
-  "name" = "tiqs-static-site-bucket"
+  "arn" = "arn:aws:s3:::tiqs-spain-static-bucket"
+  "name" = "tiqs-spain-static-bucket"
 }
 
-error_html_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com/error.html"
-index_html_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com/index.html"
-website_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com"
+website_url = "http://tiqs-spain-static-bucket.s3-website-eu-south-2.amazonaws.com"
 ```
 
 ---
@@ -101,7 +99,7 @@ website_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com
 ## 📸 Screenshots (Show Your Work!)
 
 - **S3 Static Website**  
-  ![Argentina Website Homepage](/Screenshots/s3-static-site.jpg)
+  ![España Website Homepage](/Screenshots/s3-static-site.jpg)
 
 - **S3 Error Page**  
   ![Website Error Page](/Screenshots/s3-error-html.jpg)
