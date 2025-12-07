@@ -1,7 +1,7 @@
 output "bucket_information" {
   value = {
-    name        = aws_s3_bucket.static_site.bucket
-    arn         = aws_s3_bucket.static_site.arn
+    name = aws_s3_bucket.static_site.bucket
+    arn  = aws_s3_bucket.static_site.arn
   }
 }
 

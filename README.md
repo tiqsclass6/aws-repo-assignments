@@ -90,6 +90,8 @@ website_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com
 |---------|-------------|
 | `aws_s3_bucket.static_site` | **Main website bucket** |
 | `aws_s3_bucket_website_configuration` | **Static hosting** |
+| `aws_s3_bucket_public_access_block.public_access` | **Blocks ACLs** |
+| `aws_s3_bucket_ownership_controls.ownership` | **BucketOwnerEnforced** |
 | `aws_s3_bucket_policy.public_policy` | **Public read** |
 | `aws_s3_object.index_html` | **Uploads index** |
 | `aws_s3_object.error_html` | **Uploads error page** |
@@ -109,6 +111,10 @@ website_url = "http://tiqs-static-site-bucket.s3-website-us-east-1.amazonaws.com
 
 - **AWS Static Objects**  
   ![S3 Objects](/Screenshots/aws-s3-objects.jpg)
+
+- **AWS S3 Object Details**  
+  ![S3 Index Details](/Screenshots/aws-s3-object-index-html.jpg)
+  ![S3 Error Details](/Screenshots/aws-s3-object-error-html.jpg)
 
 - **AWS Bucket Policy**  
   ![S3 Bucket Policy](/Screenshots/aws-s3-bucket-policy.jpg)

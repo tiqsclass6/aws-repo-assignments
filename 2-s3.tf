@@ -69,13 +69,15 @@ resource "aws_s3_bucket_policy" "public_policy" {
 resource "aws_s3_object" "index_html" {
   bucket       = aws_s3_bucket.static_site.id
   key          = "index.html"
-  source       = "A-index.html"
+  source       = "${path.module}/A-index.html"
   content_type = "text/html"
+  etag         = filemd5("${path.module}/A-index.html")
 }
 
 resource "aws_s3_object" "error_html" {
   bucket       = aws_s3_bucket.static_site.id
   key          = "wifey.html"
-  source       = "B-wifey.html"
+  source       = "${path.module}/B-wifey.html"
   content_type = "text/html"
+  etag         = filemd5("${path.module}/B-wifey.html")
 }
