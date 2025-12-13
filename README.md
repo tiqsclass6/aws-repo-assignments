@@ -98,10 +98,8 @@ terraform apply -auto-approve
   ![cloudfront-s3-website](Screenshots/cloudfront-s3-website.jpg)
 
 - **Demo Video:**
-<video width="100%" controls>
-  <source src="Screenshots/website-demo.mp4" type="video/mp4">
 
-</video>
+   https://github.com/user-attachments/assets/562446bb-dd83-461d-9a34-e0b83aedfdca
 
 ---
 
