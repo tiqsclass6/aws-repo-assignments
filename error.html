@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>404 – Lizzo Says This Ain’t It</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        background: url("https://www.shopbackdrop.com/cdn/shop/products/abstract-white-gray-in-center-old-black-border-backdrop_018886ba-b1c0-4ff7-95d3-eb6075315c64.jpg")
+                    no-repeat center center fixed;
+        background-size: cover;
+        color: #222;
+    }
+
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade { opacity: 0; animation: fadeUp 1.1s ease-out forwards; }
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+
+    .error-code {
+        font-size: 6.5rem;
+        font-weight: 900;
+        color: #c71f79;
+        text-shadow: 0 0 20px rgba(199,31,121,0.7);
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 2.7rem;
+        margin-top: 10px;
+        text-shadow: 0 0 10px rgba(255,255,255,0.9);
+    }
+
+    /* === SLIDESHOW SECTION === */
+    .slideshow-container {
+        position: relative;
+        max-width: 650px;
+        margin: 25px auto;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 0 25px rgba(0,0,0,0.35);
+    }
+
+    .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    @keyframes slideshowAnimation {
+        0%   { opacity: 0; }
+        10%  { opacity: 1; }
+        40%  { opacity: 1; }
+        50%  { opacity: 0; }
+        100% { opacity: 0; }
+    }
+
+    .slide:nth-child(1) { animation: slideshowAnimation 10s infinite; }
+    .slide:nth-child(2) { animation: slideshowAnimation 10s infinite; animation-delay: 5s; }
+
+    /* === CARD + LEFT IMAGE SECTION === */
+    .below-container {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 30px auto 10px auto;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    /* Left image box */
+    .side-image-box {
+        flex: 1 1 320px;
+        max-width: 1152px;
+        background: rgba(255,255,255,0.25);
+        border-radius: 16px;
+        padding: 10px;
+        backdrop-filter: blur(3px);
+        box-shadow: 0 0 15px rgba(0,0,0,0.25);
+        transition: transform 0.3s ease;
+    }
+    .side-image-box:hover { transform: scale(1.03); }
+
+    .side-image-box img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 14px;
+    }
+
+    /* Center card */
+    .card {
+        flex: 1 1 380px;
+        max-width: 520px;
+        background: rgba(255,255,255,0.82);
+        border-radius: 18px;
+        padding: 28px 36px;
+        text-align: center;
+        backdrop-filter: blur(4px);
+        box-shadow:
+            0 0 20px rgba(0,0,0,0.15),
+            0 0 40px rgba(199, 31, 121, 0.2);
+        transition: transform 0.3s ease;
+    }
+    .card:hover { transform: scale(1.03); }
+
+    .card h2 {
+        color: #c71f79;
+        font-size: 2rem;
+        margin: 0 0 14px 0;
+        text-shadow: 0 0 8px rgba(255,255,255,0.9);
+    }
+    .card p {
+        font-size: 1.15rem;
+        line-height: 1.55rem;
+        opacity: 0.92;
+    }
+
+    .home-btn {
+        padding: 14px 32px;
+        font-size: 1.1rem;
+        background: #c71f79;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        display: inline-block;
+        margin-top: 18px;
+        box-shadow: 0 4px 12px rgba(199,31,121,0.5);
+        transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .home-btn:hover {
+        background: #a01263;
+        transform: translateY(-3px);
+    }
+
+    footer {
+        margin-top: 30px;
+        opacity: 0.6;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="error-code fade">404</div>
+<h1 class="fade delay-1">Oops… Lizzo Says This Page Ain’t It!</h1>
+
+<!-- === SLIDESHOW === -->
+<div class="slideshow-container fade delay-2">
+    <div class="slide">
+      <img src="https://people.com/thmb/WnIhpS7PnRQk8HRddAGzi-V5D24=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(564x164:566x166)/lizzo-169e75da870847cab2328570167977fb.jpg">
+    </div>
+    <div class="slide">
+      <img src="https://www.thesun.co.uk/wp-content/uploads/2020/02/tp-US-composite-Lizzo-1.jpg">
+    </div>
+</div>
+
+<!-- === LEFT IMAGE + CARD === -->
+<div class="below-container fade delay-3">
+
+    <!-- Left image added as requested -->
+    <div class="side-image-box">
+      <img src="https://www.thesun.co.uk/wp-content/uploads/2020/02/tp-US-composite-Lizzo-1.jpg" alt="Left Lizzo Image">
+    </div>
+
+    <!-- Error Card -->
+    <div class="card">
+      <h2>Welcome to Lizzo Land.. <br> This Link Isn't Here. 😅</h2>
+      <p>
+        Lizzo searched high, low, backstage, side stage,  
+        and even checked wardrobe...
+        <br><br>
+        <b>This page does not exist.</b>
+        <br><br>
+        But we can get you back to something that DOES.
+      </p>
+
+      <a href="/" class="home-btn">Take Me Home</a>
+    </div>
+
+</div>
+
+<footer class="fade delay-3">
+    Powered by Lizzo Energy © This Error Slaps Harder Than It Should  
+</footer>
+
+</body>
+</html>
