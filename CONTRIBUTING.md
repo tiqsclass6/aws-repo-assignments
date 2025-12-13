@@ -1,80 +1,90 @@
-# 🤝 Contributing to `aws-repo-assignments`
+# 🔐 Security Policy
 
-Thank you for your interest in contributing to **aws-repo-assignments**!  We welcome all contributions — whether it's fixing typos, improving documentation, or enhancing Terraform configurations.
+## 🗂️ Supported Versions
 
----
+| Branch | Supported |
+|-------|-----------|
+| `assignment-12092025` (latest) | ✅ Supported |
+| Older assignment branches | ⚠️ Security updates may not be applied |
 
-## 🧭 Contribution Workflow
-
-1. **Fork the repository**
-
-   ```bash
-   git clone https://github.com/tiqsclass6/aws-repo-assignments
-   cd aws-repo-assignments
-   git checkout -b feature/<your-feature-name>
-   ```
-
-2. **Make your changes**
-   - Follow the repository's modular structure.
-   - Ensure Terraform code passes `terraform validate` and `terraform fmt -recursive`.
-   - Include descriptive commit messages.
-
-3. **Test your code**
-
-   ```bash
-   terraform init
-   terraform validate
-   terraform plan
-   ```
-
-4. **Submit a Pull Request (PR)**
-   - Push your branch:
-
-     ```bash
-     git push origin feature/<your-feature-name>
-     ```
-
-   - Create a PR describing:
-     - The purpose of your change
-     - Related issues (if any)
-     - Testing or validation steps
+Only the most recent assignment branch receives active security updates and improvements.
 
 ---
 
-## 🧹 Code Standards
+## 🛡️ Reporting a Vulnerability
 
-- **Terraform Formatting**: Always run `terraform fmt -recursive` before committing.
-- **Naming**: Use clear, consistent filenames like `3-igw.tf` or `A-backend.tf`.
-- **Comments**: Add meaningful inline comments to describe purpose and logic.
-- **No hardcoded credentials**: Use environment variables or Terraform variables.
+If you discover a security vulnerability, please **do not open a public GitHub issue**.
 
----
+Instead, report it privately using one of the following methods:
 
-## ✅ Commit Message Guidelines
+- **Maintainer: T.I.Q.S.**  
+- **GitHub:** <https://github.com/tiqsclass6>  
 
-Use the following structure:
+When reporting a vulnerability, please include:
 
-```plaintext
-<type>(scope): short description
-```
+- A clear description of the issue
+- Steps to reproduce (if applicable)
+- Potential impact or exploitation scenarios
+- Any relevant logs, screenshots, or configuration snippets
 
-**Example:**
-
-```plaintext
-feat(network): add NAT Gateway configuration
-fix(auth):     correct provider region variable
-docs(readme):  update branch breakdown table
-```
+Responsible disclosure is appreciated.
 
 ---
 
-## 💬 Feedback
+## 🚧 Security Practices
 
-For any questions, suggestions, or design discussions, open an issue or reach out directly via [GitHub Issues](https://github.com/tiqsclass6/aws-repo-assignments/issues).
+This repository follows modern cloud security best practices, including:
+
+- **No hardcoded secrets**  
+  AWS credentials, API keys, and sensitive values must never be committed to the repository.
+
+- **Secure credential handling**  
+  Use environment variables, AWS CLI profiles, or IAM roles for authentication.
+
+- **Infrastructure as Code security**  
+  Terraform configurations should:
+  - Avoid public S3 access
+  - Enforce HTTPS via CloudFront and ACM
+  - Use Origin Access Control (OAC) for private S3 origins
+  - Apply least-privilege IAM permissions
+
+- **State protection**  
+  Terraform state should be stored securely using encrypted backends (e.g., S3 with encryption and optional DynamoDB locking).
+
+- **Web application protection**  
+  AWS WAF managed rule sets are used to provide baseline protection against common web threats.
 
 ---
 
-### Maintained by
+## 🔍 Recommended Security Tooling
 
-- **Author:** T.I.Q.S.
-- **Group Leader:** John Sweeney
+The following tools are recommended when developing or extending this project:
+
+- **Terraform State Security**
+  - Encrypted S3 remote backends
+  - Optional DynamoDB state locking
+
+- **AWS Native Security Services**
+  - AWS WAF (Web Application Firewall)
+  - AWS Shield Standard (automatic with CloudFront)
+  - AWS CloudTrail (API activity auditing)
+  - Amazon CloudWatch (metrics and alerting)
+
+- **Infrastructure Security Scanning**
+  - `tfsec`
+  - `Checkov`
+  - `Snyk Infrastructure as Code`
+
+---
+
+## 📌 Notes
+
+- This project intentionally does **not** enable AWS Shield Advanced due to its monthly cost and account-level requirements.
+- Security configurations are designed to be **cost-aware**, **free-tier friendly**, and **production-aligned** where possible.
+
+---
+
+## ✍️ Maintainer
+
+**T.I.Q.S.**  
+GitHub: <https://github.com/tiqsclass6>

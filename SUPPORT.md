@@ -1,18 +1,19 @@
 # 🧰 Support Guide
 
-Thank you for using **aws-repo-assignments**!  
-This document describes how to get help, report issues, and request new features.
+Thank you for using **aws-repo-assignments**.  
+This document explains how to get help, report issues, and request enhancements related to the Terraform-based AWS assignments in this repository.
 
 ---
 
 ## 💡 Before You Ask
 
-Please ensure you’ve tried the following:
+Before opening an issue, please verify that you have completed the following:
 
-- Run `terraform validate` and `terraform fmt -recursive`
-- Review the README.md setup instructions
-- Confirm AWS credentials and backend configuration
-- Use the correct branch for your assignment (`assignment-10142025` or `assignment-10212025`)
+- Run `terraform fmt -recursive` and `terraform validate`
+- Review the project **README.md** for setup, deployment, and troubleshooting guidance
+- Confirm AWS credentials are configured correctly (`aws sts get-caller-identity`)
+- Ensure you are working on the **correct assignment branch**
+  - Current supported branch: `assignment-12092025`
 
 ---
 
@@ -20,43 +21,63 @@ Please ensure you’ve tried the following:
 
 ### 🐛 Report a Bug
 
-Submit a new issue via [GitHub Issues](https://github.com/tiqsclass6/aws-repo-assignments/issues)  
-Include:
+To report a bug, open a new issue using:  
+<https://github.com/tiqsclass6/aws-repo-assignments/issues>
 
-- Branch name (`assignment-10142025` or `assignment-10212025`)
+Please include the following details:
+
+- Branch name (e.g., `assignment-12092025`)
 - Terraform version (`terraform version`)
-- AWS region and resource context
-- Relevant logs or error messages
+- AWS region(s) involved
+- Relevant error messages or logs
+- Steps to reproduce the issue (if applicable)
 
-### 💬 Request a Feature
+Clear and complete reports help resolve issues faster.
 
-Open a feature request issue with the title:
+---
 
-```plaintext
+### 💬 Request a Feature or Enhancement
+
+To request a new feature or improvement, open an issue with the title format:
+
+```text
 [Feature Request] <short description>
 ```
 
-Describe what enhancement you'd like to see and why it’s valuable.
+Include:
+
+- A brief description of the proposed enhancement
+- The problem it solves or value it adds
+- Whether it is assignment-related or portfolio-focused
+
+---
 
 ### 🔧 Troubleshooting Help
 
-Check the README's **Troubleshooting** section for common fixes before creating an issue.
+Before submitting an issue, review the **Troubleshooting** section in the README for common problems related to:
+
+- Terraform initialization and state
+- CloudFront deployment delays
+- S3 access permissions
+- WAF configuration
+- Cache invalidation behavior
 
 ---
 
 ## 🕐 Response Times
 
-| Type | Estimated Response Time |
-|------|--------------------------|
-| Critical security issue | 24 hours |
-| General bug | 2–3 business days |
-| Feature request | 1 week |
+| Request Type | Estimated Response Time |
+|-------------|--------------------------|
+| Security-related issue | Within 24 hours |
+| General bug report | 2–3 business days |
+| Feature request | Up to 1 week |
+
+Response times may vary depending on assignment schedules and availability.
 
 ---
 
-## 👨‍💻 Maintainer Contact
+## 👨‍💻 Maintainer
 
-**Rico “TIQS” Williams**  
-🌐 [GitHub Profile](https://github.com/tiqsclass6)  
-🏢 Booz Allen Hamilton | 🎓 B.S. Computer Science  
-✉️ *“Automate everything. Secure everything.”*
+**T.I.Q.S.**  
+🌐 GitHub: <https://github.com/tiqsclass6>  
+> *“Automate everything. Secure everything.”*

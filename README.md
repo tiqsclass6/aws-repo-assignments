@@ -2,13 +2,16 @@
 
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
 ![AWS Cloud](https://img.shields.io/badge/AWS-Cloud_Services-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
-![S3 Hosting](https://img.shields.io/badge/S3-Static_Website_Hosting-569A31?style=for-the-badge&logo=amazonaws&logoColor=white)
+![CloudFront](https://img.shields.io/badge/CloudFront-CDN-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Amazon S3](https://img.shields.io/badge/Amazon_S3-Private_Origin-569A31?style=for-the-badge&logo=amazonaws&logoColor=white)
+![AWS WAF](https://img.shields.io/badge/AWS_WAF-Core_Protections-FF4F8B?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Security](https://img.shields.io/badge/Security-TLS_1.3-success?style=for-the-badge)
+![Cost](https://img.shields.io/badge/Cost-AWS_Free_Tier-green?style=for-the-badge)
+![Automation](https://img.shields.io/badge/Automation-CloudFront_Invalidate-blueviolet?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/tiqsclass6/aws-repo-assignments?style=for-the-badge&color=blue)
 ![Repo Size](https://img.shields.io/github/repo-size/tiqsclass6/aws-repo-assignments?style=for-the-badge&color=informational)
 ![Open Issues](https://img.shields.io/github/issues/tiqsclass6/aws-repo-assignments?style=for-the-badge&color=yellow)
-![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
-![Made with Terraform](https://img.shields.io/badge/Made_with-Terraform-5F43E9?style=for-the-badge&logo=terraform&logoColor=white)
-![Project Status](https://img.shields.io/badge/Status-Active-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-blue?style=for-the-badge)
 
 This repository contains a series of **modular AWS Terraform assignments** designed to progressively build a secure, scalable, and production-ready cloud environment.  
 Each **branch** represents a weekly milestone, beginning with core authentication and backend state configuration, then expanding into VPC architecture, subnets, gateways, routing, NAT services, and security layers.
@@ -119,6 +122,28 @@ Establishes the Monitoring & Alerting Layer, providing real-time visibility, pro
 
 ---
 
+### 🔹 [`assignment-12092025`](https://github.com/tiqsclass6/aws-repo-assignments/tree/assignment-12092025)
+
+- **Focus:** Secure Static Website Delivery w/CloudFront & S3 (Terraform)
+
+- **Files & Descriptions:**
+  - `0-authentication.tf` – Terraform backend configuration and state management
+  - `1-providers.tf` – AWS provider configuration, including region and provider aliases
+  - `2-variables.tf` – Input variables defining project naming and configuration values
+  - `3-s3.tf` – Private S3 bucket configuration, versioning, public access blocking, and static website objects
+  - `4-cloudfront.tf` – CloudFront distribution, Origin Access Control (OAC), TLS configuration, custom error responses, and automated cache invalidation logic
+  - `5-waf.tf` – AWS WAF Web ACL configuration and association with CloudFront for core security protections
+  - `6-outputs.tf` – Exported outputs including CloudFront distribution details
+  - `index.html` – Primary static website entry point
+  - `error.html` – Custom error page served by CloudFront
+  - `Screenshots/` – Deployment evidence, including CloudFront, S3, Terraform workflow, and validation screenshots
+  - `website-demo.mp4` – End-to-end video demonstration of the deployed website
+
+- **Outcome:**  
+  A production-ready, security-focused static website architecture demonstrating CDN delivery, private origin access, HTTPS enforcement, WAF protections, custom error handling, and infrastructure automation using Terraform.
+
+---
+
 ## 🗂️ Repository Tree
 
 ```plaintext
@@ -160,6 +185,19 @@ assignment-12022025/
 ├── 3-outputs.tf
 ├── A-index.html
 ├── B-wifey.html
+|
+assignment-12092025/
+├── 0-authentication.tf
+├── 1-providers.tf
+├── 2-variables.tf
+├── 3-s3.tf
+├── 4-cloudfront.tf
+├── 5-waf.tf
+├── 6-outputs.tf
+├── index.html
+├── error.html
+├── Screenshots/
+└── website-demo.mp4
 ```
 
 ---
@@ -184,16 +222,21 @@ terraform apply -auto-approve
 
 ## 🧰 Tools Used
 
-- **Terraform** – Primary IaC tool used to provision all AWS resources across assignments
-- **Amazon Web Services (AWS)** – VPC, Subnets, Internet Gateway, NAT Gateway, Route Tables, Security Groups, EC2, ALB, Auto Scaling, S3 Static Hosting
-- **S3 Bucket Ownership Controls** – Modern ACL-less static hosting configuration
-- **Remote State Backend** – Optional S3 + DynamoDB Terraform state locking (`A-backend.tf`)
-- **GitHub Branching Workflow** – Weekly assignment branches showing infrastructure progression from networking → compute → load balancing → scaling → S3 hosting
-- **GitHub Version Control** – Tracks code evolution, diffs, and commit history
-- **Markdown Documentation** – Clean, structured summaries of each assignment
-- **Shields.io Badges** – Visual repository indicators (Terraform, AWS, status, size, last commit)
-- **AWS CLI & Management Console** – Verification, bucket inspection, S3 uploads, and troubleshooting
-- **HTML/CSS** – Front-end components for S3-based static website (Argentina-themed UI)
+- **Terraform** – Primary Infrastructure as Code (IaC) tool used to provision, manage, and automate all AWS resources in a declarative and repeatable manner
+- **Amazon Web Services (AWS)** – Cloud platform hosting the core services used in this project, including CloudFront, S3, ACM, WAF, and IAM
+- **Amazon S3** – Private object storage used to host static website assets (`index.html`, `error.html`)
+- **Amazon CloudFront** – Global content delivery network (CDN) used to securely serve static content with HTTPS enforcement and edge caching
+- **Origin Access Control (OAC)** – Modern CloudFront security mechanism ensuring the S3 bucket is accessible only through CloudFront
+- **AWS Certificate Manager (ACM)** – Manages TLS certificates used by CloudFront to enforce HTTPS with modern TLS policies
+- **AWS WAF (Web Application Firewall)** – Provides core web application security protections using managed rule sets
+- **AWS Shield Standard** – Default DDoS protection automatically enabled for CloudFront distributions at no additional cost
+- **Terraform `terraform_data` Resource** – Modern orchestration mechanism used to trigger CloudFront cache invalidation when website content changes
+- **AWS CLI** – Used for CloudFront invalidation commands, verification, and troubleshooting during deployment
+- **GitHub Version Control** – Tracks infrastructure changes, branch-based assignments, and commit history
+- **GitHub Branching Workflow** – Assignment-based branching model demonstrating incremental infrastructure and security enhancements
+- **Markdown Documentation** – Structured project documentation, including README, architecture descriptions, and deployment instructions
+- **Shields.io Badges** – Visual indicators highlighting tooling, security posture, automation, and project status
+- **HTML/CSS** – Front-end components for the static website served through CloudFront
 
 ---
 
@@ -209,6 +252,7 @@ terraform apply -auto-approve
 | 6️⃣ | `assignment-11182025` | Monitoring + Alerting Script | `venezuela.sh` |
 | 7️⃣ | `assignment-11252025` | AWS SNS Notifications | `12-sns.tf` |
 | 8️⃣ | `assignment-12022025` | Full S3 Website Deployment + HTML Content | `0-auth.tf`, `1-providers.tf`, `2-s3.tf`, `3-outputs.tf`, `A-index.html`, `B-wifey.html` |
+| 9️⃣ | `assignment-12092025` | CloudFront + WAF + Secure S3 Hosting | `0-authentication.tf`, `1-providers.tf`, `2-variables.tf`, `3-s3.tf`, `4-cloudfront.tf`, `5-waf.tf`, `6-outputs.tf`, `index.html`, `error.html` |
 
 > [!NOTE]
 > Future branches will add compute, IAM roles, and monitoring components.
@@ -219,18 +263,19 @@ terraform apply -auto-approve
 
 | Issue | Possible Fix |
 |-------|--------------|
-| **Terraform init fails** | Verify S3 backend configuration or temporarily disable the remote backend. |
-| **AWS credential errors** | Ensure `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are exported or configured via AWS CLI. |
-| **NAT Gateway not deploying** | Check subnet mapping, route table associations, and confirm EIP availability. |
-| **Route Table not linking** | Validate IGW/NAT IDs and ensure correct subnet associations. |
-| **ALB not provisioning** | Confirm SG inbound rules, target group health checks, and subnet selection. |
-| **Autoscaling issues** | Review CloudWatch alarms, scaling policies, instance role permissions. |
-| **Monitoring script errors** | Ensure AWS CLI v2 is installed and IAM permissions allow required actions. |
-| **State file conflicts** | Run `terraform state list`, `terraform state rm`, or repair backend locks in DynamoDB. |
-| **SNS emails not received** | Confirm subscription is **confirmed**, check spam folder, and verify email endpoint. |
-| **S3 website not loading** | Verify `BucketOwnerEnforced`, remove unsupported ACLs, and confirm bucket policy allows `s3:GetObject`. |
-| **HTML objects not uploading** | Remove `acl = "public-read"` (unsupported with Bucket Owner Enforced); rely on bucket policy instead. |
-| **Website URL returns 403** | Ensure index file key matches (`index.html`) and that the bucket policy allows public read. |
+| **`terraform init` fails** | Verify Terraform version (`>= 1.6`), provider constraints, and backend configuration. If using a remote backend, ensure the S3 bucket exists and credentials are valid. |
+| **AWS credential errors** | Ensure `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are configured via environment variables, AWS CLI, or an IAM role. Run `aws sts get-caller-identity` to verify access. |
+| **ACM certificate not found** | CloudFront certificates **must** exist in `us-east-1`. Verify the certificate status is **ISSUED** and the correct domain name is referenced. |
+| **CloudFront distribution stuck in Deploying** | CloudFront updates are global and may take several minutes. Wait for status to change to **Deployed** before testing. |
+| **CloudFront returns 403 Access Denied** | Confirm Origin Access Control (OAC) is configured and the S3 bucket policy allows `s3:GetObject` from the CloudFront distribution ARN. |
+| **Custom error page not loading** | Ensure `error.html` exists at the **bucket root** and that both **403 and 404** custom error responses are configured in CloudFront. |
+| **WAF not attaching to CloudFront** | WAF Web ACLs for CloudFront must be created in `us-east-1`. Verify the `web_acl_id` is set on the distribution. |
+| **CloudFront cache not updating after content changes** | Verify the `terraform_data` invalidation resource is triggering correctly and that the AWS CLI is installed and authenticated. |
+| **CloudFront invalidation fails** | Ensure correct path formatting (`"/*"`), valid distribution ID, and sufficient IAM permissions for `cloudfront:CreateInvalidation`. |
+| **S3 objects not uploading** | Confirm file paths are correct and that `for_each` object definitions reference valid source files. Check `terraform plan` for file diffs. |
+| **Website loads over HTTP instead of HTTPS** | Verify CloudFront viewer protocol policy is set to `redirect-to-https` and the ACM certificate is correctly attached. |
+| **WAF blocking legitimate traffic** | Review WAF sampled requests and metrics in CloudWatch. Adjust or exclude managed rule sets if necessary. |
+| **Terraform state lock issues** | If using a remote backend, ensure no stale locks exist. Retry after a few minutes or manually clear locks if required. |
 
 ---
 
