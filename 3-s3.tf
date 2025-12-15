@@ -41,6 +41,11 @@ resource "aws_s3_bucket_public_access_block" "site" {
   restrict_public_buckets = true
 }
 
+resource "aws_s3_bucket_policy" "site_policy" {
+  bucket = aws_s3_bucket.site.id
+  policy = local_file.s3_policy_json.content
+}
+
 resource "aws_s3_object" "site_objects" {
   for_each = local.site_objects
 

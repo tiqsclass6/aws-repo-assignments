@@ -129,23 +129,15 @@ resource "aws_cloudfront_distribution" "cdn" {
   tags = local.cf_tags
 }
 
-resource "aws_s3_bucket_policy" "site_policy" {
-  bucket = aws_s3_bucket.site.id
-  policy = local_file.s3_policy_json.content
-}
-
-resource "null_resource" "invalidate_cloudfront" {
-  triggers = {
-    objects_hash = local.objects_hash
+resource "terraform_data" "cloudfront_invalidation" {
+  triggers_replace = {
+    distribution_id = aws_cloudfront_distribution.cdn.id
   }
 
   provisioner "local-exec" {
-    interpreter = ["PowerShell", "-NoProfile", "-Command"]
-    command     = "aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.cdn.id} --paths /*"
+    interpreter = ["PowerShell", "-NoProfile", "-NonInteractive", "-Command"]
+    command     = "aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.cdn.id} --paths '/*'"
   }
 
-  depends_on = [
-    aws_cloudfront_distribution.cdn,
-    aws_s3_object.site_objects
-  ]
+  depends_on = [aws_cloudfront_distribution.cdn]
 }
