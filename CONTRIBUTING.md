@@ -2,10 +2,10 @@
 
 ## 🗂️ Supported Versions
 
-| Branch | Supported |
-|-------|-----------|
-| `assignment-12092025` (latest) | ✅ Supported |
-| Older assignment branches | ⚠️ Security updates may not be applied |
+| Branch                         | Supported                              |
+|:-------------------------------|:---------------------------------------|
+| `assignment-12232025` (latest) | ✅ Supported                           |
+| Older assignment branches      | ⚠️ Security updates may not be applied |
 
 Only the most recent assignment branch receives active security updates and improvements.
 

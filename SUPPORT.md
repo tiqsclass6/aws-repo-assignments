@@ -26,7 +26,7 @@ To report a bug, open a new issue using:
 
 Please include the following details:
 
-- Branch name (e.g., `assignment-12092025`)
+- Branch name (e.g., `assignment-12232025`)
 - Terraform version (`terraform version`)
 - AWS region(s) involved
 - Relevant error messages or logs
@@ -66,11 +66,11 @@ Before submitting an issue, review the **Troubleshooting** section in the README
 
 ## 🕐 Response Times
 
-| Request Type | Estimated Response Time |
-|-------------|--------------------------|
-| Security-related issue | Within 24 hours |
-| General bug report | 2–3 business days |
-| Feature request | Up to 1 week |
+| Request Type           | Estimated Response Time |
+|------------------------|-------------------------|
+| Security-related issue | Within 24 hours         |
+| General bug report     | 2–3 business days       |
+| Feature request        | Up to 1 week            |
 
 Response times may vary depending on assignment schedules and availability.
 

@@ -43,9 +43,9 @@ Responsibilities include:
 
 Security matters are governed by:
 
-- SECURITY.md
-- CODE_OF_CONDUCT.md
-- SUPPORT.md
+- [SECURITY.md](/SECURITY.md)
+- [CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md)
+- [SUPPORT.md](/SUPPORT.md)
 
 Sensitive information must never be committed.
 
@@ -53,7 +53,7 @@ Sensitive information must never be committed.
 
 ## 🗂️ Branch Governance
 
-- `assignment-12092025` is the actively supported branch
+- `assignment-12232025` is the actively supported branch
 - Older branches are retained for reference only
 
 ---

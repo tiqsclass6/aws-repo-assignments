@@ -2,10 +2,18 @@
 
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
 ![AWS Cloud](https://img.shields.io/badge/AWS-Cloud_Services-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Amazon VPC](https://img.shields.io/badge/VPC-Networking-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Amazon EC2](https://img.shields.io/badge/EC2-Compute_Instances-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Application Load Balancer](https://img.shields.io/badge/ALB-Load_Balancing-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Auto Scaling](https://img.shields.io/badge/Auto_Scaling-Dynamic_Scaling-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Amazon Route 53](https://img.shields.io/badge/Route_53-DNS_Management-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![VPC Peering](https://img.shields.io/badge/VPC_Peering-Cross_Region_Connectivity-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Amazon SNS](https://img.shields.io/badge/SNS-Notifications-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![CloudFront](https://img.shields.io/badge/CloudFront-CDN-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![Amazon S3](https://img.shields.io/badge/Amazon_S3-Private_Origin-569A31?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![AWS WAF](https://img.shields.io/badge/AWS_WAF-Core_Protections-FF4F8B?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![Security](https://img.shields.io/badge/Security-TLS_1.3-success?style=for-the-badge)
+![High Availability](https://img.shields.io/badge/High_Availability-Multi_AZ-success?style=for-the-badge)
 ![Cost](https://img.shields.io/badge/Cost-AWS_Free_Tier-green?style=for-the-badge)
 ![Automation](https://img.shields.io/badge/Automation-CloudFront_Invalidate-blueviolet?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/tiqsclass6/aws-repo-assignments?style=for-the-badge&color=blue)
@@ -144,6 +152,45 @@ Establishes the Monitoring & Alerting Layer, providing real-time visibility, pro
 
 ---
 
+### 🔹 [`assignment-12162025`](https://github.com/tiqsclass6/aws-repo-assignments/tree/assignment-12162025)
+
+- **Focus:** High-Availability Global Web System with Auto Scaling, Application Load Balancer, and Route 53 (Terraform)
+
+- **Files & Descriptions:**
+  - `13-key.tf` – SSH key pair management
+  - `14-route53.tf` – Route 53 hosted zone and record aliasing
+  - `hungary.sh` – User data script for Hungary-themed web content
+  - `japan.sh` – User data script for Japan-themed web content
+
+- **Outcome:**  
+  A resilient, scalable web application infrastructure incorporating auto scaling, load balancing, DNS management, and notification systems, demonstrating high availability and automated resource management in AWS using Terraform.
+
+---
+
+### 🔹 [`assignment-12232025`](https://github.com/tiqsclass6/aws-repo-assignments/tree/assignment-12232025)
+
+- **Focus:** Multi-Region VPC Peering Architecture with EC2 Web Servers (Terraform)
+
+- **Files & Descriptions:**
+  - `.gitignore` – Git ignore configuration file
+  - `0-authentication.tf` – AWS provider and authentication configuration
+  - `1-vpc.tf` – Multi-region VPC provisioning
+  - `2-subnets.tf` – Public and private subnets across regions
+  - `3-igw.tf` – Internet Gateways for regional VPCs
+  - `4-rtb.tf` – Route tables with peering routes
+  - `5-sg.tf` – Security groups for EC2 instances
+  - `6-instances.tf` – EC2 web server deployments in multiple regions
+  - `7-backend.tf` – Terraform state management backend
+  - `8-output.tf` – Resource output definitions
+  - `japan.sh` – User data script for Japan-themed Apache web server setup
+  - `README.md` – Detailed documentation including architecture diagram, deployment steps, prerequisites, and troubleshooting
+  - `Screenshots/` – Directory with evidence of VPC peering connections, EC2 instances, route tables, and related resources
+
+- **Outcome:**  
+  A secure, multi-region AWS infrastructure facilitating private inter-VPC communication through peering connections, with regionally deployed web servers, emphasizing modular Terraform code, networking best practices, and cross-region connectivity without public internet exposure.
+
+---
+
 ## 🗂️ Repository Tree
 
 ```plaintext
@@ -198,6 +245,23 @@ assignment-12092025/
 ├── error.html
 ├── Screenshots/
 └── website-demo.mp4
+|
+assignment-12162025/
+├── 13-key.tf
+├── 14-route53.tf
+├── hungary.sh
+├── japan.sh
+|
+assignment-12232025/
+├── 0-authentication.tf
+├── 1-vpc.tf
+├── 2-subnets.tf
+├── 3-igw.tf
+├── 4-rtb.tf
+├── 5-sg.tf
+├── 6-instances.tf
+├── 7-backend.tf
+├── 8-output.tf
 ```
 
 ---
@@ -222,48 +286,58 @@ terraform apply -auto-approve
 
 ## 🧰 Tools Used
 
-- **Terraform** – Primary Infrastructure as Code (IaC) tool used to provision, manage, and automate all AWS resources in a declarative and repeatable manner
-- **Amazon Web Services (AWS)** – Cloud platform hosting the core services used in this project, including CloudFront, S3, ACM, WAF, and IAM
-- **Amazon S3** – Private object storage used to host static website assets (`index.html`, `error.html`)
-- **Amazon CloudFront** – Global content delivery network (CDN) used to securely serve static content with HTTPS enforcement and edge caching
-- **Origin Access Control (OAC)** – Modern CloudFront security mechanism ensuring the S3 bucket is accessible only through CloudFront
-- **AWS Certificate Manager (ACM)** – Manages TLS certificates used by CloudFront to enforce HTTPS with modern TLS policies
-- **AWS WAF (Web Application Firewall)** – Provides core web application security protections using managed rule sets
-- **AWS Shield Standard** – Default DDoS protection automatically enabled for CloudFront distributions at no additional cost
-- **Terraform `terraform_data` Resource** – Modern orchestration mechanism used to trigger CloudFront cache invalidation when website content changes
-- **AWS CLI** – Used for CloudFront invalidation commands, verification, and troubleshooting during deployment
-- **GitHub Version Control** – Tracks infrastructure changes, branch-based assignments, and commit history
-- **GitHub Branching Workflow** – Assignment-based branching model demonstrating incremental infrastructure and security enhancements
-- **Markdown Documentation** – Structured project documentation, including README, architecture descriptions, and deployment instructions
-- **Shields.io Badges** – Visual indicators highlighting tooling, security posture, automation, and project status
-- **HTML/CSS** – Front-end components for the static website served through CloudFront
+- **Terraform** – Primary Infrastructure as Code (IaC) tool used to provision, manage, and automate all AWS resources in a declarative, repeatable, and version-controlled manner.
+- **Amazon Web Services (AWS)** – Cloud platform hosting core services, including VPC, EC2, S3, CloudFront, Application Load Balancer (ALB), Route 53, WAF, ACM, SNS, and IAM.
+- **Amazon Virtual Private Cloud (VPC)** – Isolated networking environment with customizable subnets, route tables, Internet Gateways, and NAT Gateways for secure resource isolation.
+- **Amazon EC2** – Compute service providing scalable virtual servers for hosting web applications with user data scripts for automated configuration.
+- **Amazon S3** – Object storage for static website assets, Terraform state management (backend), and bucket-based remote state locking.
+- **Amazon CloudFront** – Global content delivery network (CDN) for low-latency, secure distribution of static content with HTTPS enforcement and caching.
+- **AWS Application Load Balancer (ALB)** – Layer 7 load balancing for distributing traffic across EC2 instances with health checks and HTTPS listeners.
+- **Auto Scaling Group (ASG)** – Automated scaling of EC2 instances based on policies, integrated with launch templates for consistent deployments.
+- **Amazon Route 53** – Scalable DNS service for domain routing, hosted zones, and alias records pointing to ALB or CloudFront distributions.
+- **Origin Access Control (OAC)** – CloudFront security feature restricting S3 bucket access exclusively through the distribution.
+- **AWS Certificate Manager (ACM)** – Provisioning and management of TLS/SSL certificates for secure HTTPS communication in CloudFront and ALB.
+- **AWS WAF (Web Application Firewall)** – Managed security rules protecting web applications from common exploits, associated with CloudFront or ALB.
+- **Amazon Simple Notification Service (SNS)** – Pub/Sub messaging for sending notifications on scaling events and alerts.
+- **AWS Shield Standard** – Built-in DDoS protection for CloudFront and other resources at no additional cost.
+- **VPC Peering** – Private connectivity mechanism enabling secure communication between VPCs across regions without public internet exposure.
+- **Terraform Remote Backend** – S3 and DynamoDB integration for centralized state storage, versioning, and collaborative locking.
+- **Terraform `terraform_data` Resource** – Orchestration tool for triggering post-deployment actions, such as CloudFront cache invalidations.
+- **AWS CLI** – Command-line interface for resource verification, invalidation commands, and troubleshooting deployments.
+- **Bash Scripts (User Data)** – Automation scripts (e.g., `japan.sh`, `hungary.sh`) for initializing Apache web servers and deploying themed content on EC2 instances.
+- **GitHub Version Control** – Repository management with branch-based assignments tracking incremental infrastructure development.
+- **GitHub Branching Workflow** – Structured branching model for progressive enhancements in networking, security, compute, and distribution.
+- **Markdown Documentation** – Comprehensive README files, architecture overviews, deployment guides, and troubleshooting sections.
+- **Shields.io Badges** – Dynamic visual badges indicating tools, security features, automation status, and project milestones.
+- **HTML/CSS** – Static website content with custom themes served via S3/CloudFront or dynamic EC2-hosted pages.
 
 ---
 
 ## ⚙️ Learning Progression
 
-| Week | Branch | Focus | Key Files |
-|------|---------|--------|-----------|
-| 1️⃣ | `assignment-10142025` | Base VPC + Auth + Backend | `0-authentication.tf`, `1-vpc.tf`, `2-subnets.tf`, `A-backend.tf` |
-| 2️⃣ | `assignment-10212025` | IGW + NAT + Basic Routing | `3-igw.tf`, `4-nat.tf`, `5-rtb.tf` |
-| 3️⃣ | `assignment-10282025` | Security Groups + EC2 Instance | `6-SG-All.tf`, `7-instances.tf` |
-| 4️⃣ | `assignment-11042025` | Security + IAM Expansion | `B-outputs.tf` |
-| 5️⃣ | `assignment-11112025` | Compute + Load Balancer + Autoscaling | `8-target-groups.tf`, `9-load-balancer.tf`, `10-autoscaling-policy.tf`, `11-launch-template.tf` |
-| 6️⃣ | `assignment-11182025` | Monitoring + Alerting Script | `venezuela.sh` |
-| 7️⃣ | `assignment-11252025` | AWS SNS Notifications | `12-sns.tf` |
-| 8️⃣ | `assignment-12022025` | Full S3 Website Deployment + HTML Content | `0-auth.tf`, `1-providers.tf`, `2-s3.tf`, `3-outputs.tf`, `A-index.html`, `B-wifey.html` |
-| 9️⃣ | `assignment-12092025` | CloudFront + WAF + Secure S3 Hosting | `0-authentication.tf`, `1-providers.tf`, `2-variables.tf`, `3-s3.tf`, `4-cloudfront.tf`, `5-waf.tf`, `6-outputs.tf`, `index.html`, `error.html` |
+|Week|Branch|Focus|Key Files|
+|---|---|---|---|
+|1️⃣|`assignment-10142025`|Base VPC + Auth + Backend|`0-authentication.tf`, `1-vpc.tf`, `2-subnets.tf`, `A-backend.tf`|
+|2️⃣|`assignment-10212025`|IGW + NAT + Basic Routing|`3-igw.tf`, `4-nat.tf`, `5-rtb.tf`|
+|3️⃣|`assignment-10282025`|Security Groups + EC2 Instance|`6-SG-All.tf`, `7-instances.tf`|
+|4️⃣|`assignment-11042025`|Security + IAM Expansion|`B-outputs.tf`|
+|5️⃣|`assignment-11112025`|Compute + Load Balancer + Autoscaling|`8-target-groups.tf`, `9-load-balancer.tf`, `10-autoscale-policy.tf`, `11-launch-template.tf`|
+|6️⃣|`assignment-11182025`|Monitoring + Alerting Script|`venezuela.sh`|
+|7️⃣|`assignment-11252025`|AWS SNS Notifications|`12-sns.tf`|
+|8️⃣|`assignment-12022025`|Full S3 Website Deployment + HTML Content|`0-auth.tf`, `1-providers.tf`, `2-s3.tf`, `3-outputs.tf`, `A-index.html`, `B-wifey.html`|
+|9️⃣|`assignment-12092025`|CloudFront + WAF + Secure S3 Hosting|`0-authentication.tf`, `1-providers.tf`, `2-variables.tf`, `3-s3.tf`, `4-cloudfront.tf`, `5-waf.tf`, `6-outputs.tf`, `index.html`, `error.html`|
+|🔟|`assignment-12162025`|High-Availability Global Web System with Auto Scaling, ALB, and Route 53|`9-load-balancer.tf`, `10-autoscale-policy.tf`, `11-launch-template.tf`, `13-key.tf`, `14-route53.tf`, `hungary.sh`, `japan.sh`|
+|1️⃣1️⃣|`assignment-12232025`|Multi-Region VPC Peering Architecture with EC2 Web Servers|`0-authentication.tf`, `1-vpc.tf`, `4-rtb.tf`, `5-sg.tf`, `6-instances.tf`, `japan.sh`|
 
 > [!NOTE]
 > Future branches will add compute, IAM roles, and monitoring components.
-
 ---
 
 ## 🔎 Troubleshooting
 
 | Issue | Possible Fix |
-|-------|--------------|
-| **`terraform init` fails** | Verify Terraform version (`>= 1.6`), provider constraints, and backend configuration. If using a remote backend, ensure the S3 bucket exists and credentials are valid. |
+| ------- | -------------- |
+| **`terraform init` fails** | Verify Terraform version (`>= 1.6`), provider constraints, and backend configuration. If using a remote backend, ensure the S3 bucket and DynamoDB lock table exist with valid credentials. Run `terraform init -upgrade` if providers need updating. |
 | **AWS credential errors** | Ensure `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are configured via environment variables, AWS CLI, or an IAM role. Run `aws sts get-caller-identity` to verify access. |
 | **ACM certificate not found** | CloudFront certificates **must** exist in `us-east-1`. Verify the certificate status is **ISSUED** and the correct domain name is referenced. |
 | **CloudFront distribution stuck in Deploying** | CloudFront updates are global and may take several minutes. Wait for status to change to **Deployed** before testing. |
@@ -273,9 +347,13 @@ terraform apply -auto-approve
 | **CloudFront cache not updating after content changes** | Verify the `terraform_data` invalidation resource is triggering correctly and that the AWS CLI is installed and authenticated. |
 | **CloudFront invalidation fails** | Ensure correct path formatting (`"/*"`), valid distribution ID, and sufficient IAM permissions for `cloudfront:CreateInvalidation`. |
 | **S3 objects not uploading** | Confirm file paths are correct and that `for_each` object definitions reference valid source files. Check `terraform plan` for file diffs. |
-| **Website loads over HTTP instead of HTTPS** | Verify CloudFront viewer protocol policy is set to `redirect-to-https` and the ACM certificate is correctly attached. |
+| **Website loads over HTTP instead of HTTPS** | Verify CloudFront viewer protocol policy is set to `redirect-to-https` and the ACM certificate is correctly attached. For ALB-based setups, ensure the HTTPS listener is configured and the certificate is validated in the correct region. |
 | **WAF blocking legitimate traffic** | Review WAF sampled requests and metrics in CloudWatch. Adjust or exclude managed rule sets if necessary. |
-| **Terraform state lock issues** | If using a remote backend, ensure no stale locks exist. Retry after a few minutes or manually clear locks if required. |
+| **Terraform state lock issues** | If using a remote backend, ensure no stale locks exist in DynamoDB. Retry after a few minutes or manually clear locks if required. |
+| **ALB returns 503 errors** | Verify instances pass health checks, target group port matches the application (e.g., 80 for HTTP), and instance security groups allow traffic from the ALB security group. |
+| **Route 53 alias not resolving correctly** | Confirm the A record alias points to the correct ALB DNS name and region. Check for certificate validation issues affecting HTTPS. |
+| **VPC peering connection inactive or routing failures** | Ensure the peering connection is active, route tables in both VPCs include peering routes, and security groups/network ACLs permit the desired traffic. Validate non-overlapping CIDR blocks. |
+| **Resource creation failures** | Review AWS service quotas, CloudTrail logs for errors, and validate resource configurations (e.g., CIDR ranges). |
 
 ---
 
