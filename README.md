@@ -326,7 +326,7 @@ terraform apply -auto-approve
 |7️⃣|`assignment-11252025`|AWS SNS Notifications|`12-sns.tf`|
 |8️⃣|`assignment-12022025`|Full S3 Website Deployment + HTML Content|`0-auth.tf`, `1-providers.tf`, `2-s3.tf`, `3-outputs.tf`, `A-index.html`, `B-wifey.html`|
 |9️⃣|`assignment-12092025`|CloudFront + WAF + Secure S3 Hosting|`0-authentication.tf`, `1-providers.tf`, `2-variables.tf`, `3-s3.tf`, `4-cloudfront.tf`, `5-waf.tf`, `6-outputs.tf`, `index.html`, `error.html`|
-|🔟|`assignment-12162025`|High-Availability Global Web System with Auto Scaling, ALB, and Route 53|`9-load-balancer.tf`, `10-autoscale-policy.tf`, `11-launch-template.tf`, `13-key.tf`, `14-route53.tf`, `hungary.sh`, `japan.sh`|
+|🔟|`assignment-12162025`|High-Availability Global Web System with Auto Scaling, ALB, and Route 53|`13-key.tf`, `14-route53.tf`, `hungary.sh`, `japan.sh`|
 |1️⃣1️⃣|`assignment-12232025`|Multi-Region VPC Peering Architecture with EC2 Web Servers|`0-authentication.tf`, `1-vpc.tf`, `4-rtb.tf`, `5-sg.tf`, `6-instances.tf`, `japan.sh`|
 
 > [!NOTE]
